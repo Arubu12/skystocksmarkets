@@ -10,6 +10,41 @@
       color: white;
     }
 
+    /* LOGIN */
+    .login {
+      display: flex;
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .box {
+      background: #1f2937;
+      padding: 30px;
+      border-radius: 10px;
+      width: 300px;
+      text-align: center;
+    }
+
+    input {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+    }
+
+    button {
+      padding: 10px;
+      width: 100%;
+      border: none;
+      background: #22c55e;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    /* DASHBOARD */
     .topbar {
       background: #111827;
       padding: 15px;
@@ -36,19 +71,26 @@
       font-weight: bold;
     }
 
-    button {
-      margin-top: 10px;
-      padding: 10px;
-      border: none;
-      background: #22c55e;
-      color: white;
-      border-radius: 6px;
-      cursor: pointer;
+    .hidden {
+      display: none;
     }
   </style>
 </head>
 
 <body>
+
+<!-- LOGIN PAGE -->
+<div id="loginPage" class="login">
+  <div class="box">
+    <h2>Login</h2>
+    <input type="text" id="user" placeholder="Username">
+    <input type="password" id="pass" placeholder="Password">
+    <button onclick="login()">Login</button>
+  </div>
+</div>
+
+<!-- DASHBOARD -->
+<div id="dashboard" class="hidden">
 
   <div class="topbar">
     Sky Stocks Market Dashboard 🚀
@@ -77,8 +119,8 @@
     </div>
 
     <div class="card">
-      <div>Start Trading</div>
-      <button onclick="alert('Trading system coming soon')">Open Trade</button>
+      <div>Trading</div>
+      <button onclick="alert('Trading coming soon')">Open Trade</button>
     </div>
 
     <div class="card">
@@ -87,6 +129,22 @@
     </div>
 
   </div>
+
+</div>
+
+<script>
+function login() {
+  let user = document.getElementById("user").value;
+  let pass = document.getElementById("pass").value;
+
+  if(user && pass) {
+    document.getElementById("loginPage").style.display = "none";
+    document.getElementById("dashboard").classList.remove("hidden");
+  } else {
+    alert("Please enter login details");
+  }
+}
+</script>
 
 </body>
 </html>
